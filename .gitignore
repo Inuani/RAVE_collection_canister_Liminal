@@ -1,0 +1,6 @@
+.dfx/
+.mops/
+ufr-lib/
+.env
+cmacs.json
+repomix-output.txt
