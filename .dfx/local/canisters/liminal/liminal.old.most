@@ -1,0 +1,773 @@
+// Version: 1.0.0
+type AssetEncoding__180684491 =
+  {
+    var certified : Bool;
+    var content_chunks : [[Nat8]];
+    var content_chunks_prefix_sum : [Nat];
+    var modified : Time__784339588;
+    var sha256 : Blob;
+    var total_length : Nat
+  };
+type AssetEncoding__540499773 =
+  {
+    var certified : Bool;
+    var content_pointer : SizedPointer__820165143;
+    var modified : Time__57005197;
+    var sha256 : Blob;
+    var total_length : Nat
+  };
+type AssetEncoding__639936122 =
+  {
+    var certified : Bool;
+    var content_chunks : Vector__786281675<Blob>;
+    var modified : Time__488570079;
+    var sha256 : Blob;
+    var total_length : Nat
+  };
+type AssetEncoding__720652589 =
+  {
+    var certified : Bool;
+    var content_pointer : SizedPointer__394425933;
+    var modified : Time__816673238;
+    var sha256 : Blob;
+    var total_length : Nat
+  };
+type AssetEncoding__831123309 =
+  {
+    var certified : Bool;
+    var content_chunks : [Blob];
+    var content_chunks_prefix_sum : [Nat];
+    var modified : Time__121024797;
+    var sha256 : Blob;
+    var total_length : Nat
+  };
+type Asset__1069753355 =
+  {
+    var allow_raw_access : ?Bool;
+    var content_type : Text;
+    encodings : Map__923563326<Text, AssetEncoding__180684491>;
+    headers : Map__923563326<Text, Text>;
+    var is_aliased : ?Bool;
+    var last_certified_encoding : ?Text;
+    var max_age : ?Nat64
+  };
+type Asset__381786100 =
+  {
+    var allow_raw_access : ?Bool;
+    var content_type : Text;
+    encodings : Map__363645299<Text, AssetEncoding__720652589>;
+    headers : Map__363645299<Text, Text>;
+    var is_aliased : ?Bool;
+    var last_certified_encoding : ?Text;
+    var max_age : ?Nat64
+  };
+type Asset__436242041 =
+  {
+    var allow_raw_access : ?Bool;
+    var content_type : Text;
+    encodings : Map__274966286<Text, AssetEncoding__831123309>;
+    headers : Map__274966286<Text, Text>;
+    var is_aliased : ?Bool;
+    var last_certified_encoding : ?Text;
+    var max_age : ?Nat64
+  };
+type Asset__622570851 =
+  {
+    var allow_raw_access : ?Bool;
+    var content_type : Text;
+    encodings : Map__869657960<Text, AssetEncoding__540499773>;
+    headers : Map__869657960<Text, Text>;
+    var is_aliased : ?Bool;
+    var last_certified_encoding : ?Text;
+    var max_age : ?Nat64
+  };
+type Asset__93486522 =
+  {
+    var allow_raw_access : ?Bool;
+    var content_type : Text;
+    encodings : Map__897522106<Text, AssetEncoding__639936122>;
+    headers : Map__897522106<Text, Text>;
+    var is_aliased : ?Bool;
+    var max_age : ?Nat64
+  };
+type BatchId__1032566513 = Nat;
+type BatchId__324165117 = Nat;
+type BatchId__342237955 = Nat;
+type BatchId__496896010 = Nat;
+type BatchId__940816580 = Nat;
+type BatchOperationKind__112076315 =
+  {
+    #Clear : ClearArguments__334001278;
+    #CreateAsset : CreateAssetArguments__250147861;
+    #DeleteAsset : DeleteAssetArguments__942411246;
+    #SetAssetContent : SetAssetContentArguments__100630493;
+    #SetAssetProperties : SetAssetPropertiesArguments__189951242;
+    #UnsetAssetContent : UnsetAssetContentArguments__489085154
+  };
+type BatchOperationKind__294532669 =
+  {
+    #Clear : ClearArguments__614328059;
+    #CreateAsset : CreateAssetArguments__217227566;
+    #DeleteAsset : DeleteAssetArguments__951873493;
+    #SetAssetContent : SetAssetContentArguments__549348508;
+    #SetAssetProperties : SetAssetPropertiesArguments__778232849;
+    #UnsetAssetContent : UnsetAssetContentArguments__1021887138
+  };
+type BatchOperationKind__628647605 =
+  {
+    #Clear : ClearArguments__304512312;
+    #CreateAsset : CreateAssetArguments__18548572;
+    #DeleteAsset : DeleteAssetArguments__515638231;
+    #SetAssetContent : SetAssetContentArguments__18420833;
+    #SetAssetProperties : SetAssetPropertiesArguments__456101702;
+    #UnsetAssetContent : UnsetAssetContentArguments__9270027
+  };
+type BatchOperationKind__778937957 =
+  {
+    #Clear : ClearArguments__520174813;
+    #CreateAsset : CreateAssetArguments__961270110;
+    #DeleteAsset : DeleteAssetArguments__652689006;
+    #SetAssetContent : SetAssetContentArguments__284791828;
+    #SetAssetProperties : SetAssetPropertiesArguments__934046308;
+    #UnsetAssetContent : UnsetAssetContentArguments__480337755
+  };
+type BatchOperationKind__857722721 =
+  {
+    #Clear : ClearArguments__869447135;
+    #CreateAsset : CreateAssetArguments__102330031;
+    #DeleteAsset : DeleteAssetArguments__357907681;
+    #SetAssetContent : SetAssetContentArguments__384693424;
+    #SetAssetProperties : SetAssetPropertiesArguments__505016144;
+    #UnsetAssetContent : UnsetAssetContentArguments__108117921
+  };
+type Batch__221674262 =
+  {
+    chunk_ids : Vector__985631301<ChunkId__30306550>;
+    var commit_batch_arguments : ?CommitBatchArguments__86442558;
+    var evidence_computation : ?EvidenceComputation__7785530;
+    var expires_at : Time__784339588;
+    var total_bytes : Nat
+  };
+type Batch__415947667 =
+  {
+    var chunk_content_total_size : Nat;
+    var commit_batch_arguments : ?CommitBatchArguments__112623014;
+    var evidence_computation : ?EvidenceComputation__813828325;
+    var expires_at : Time__488570079
+  };
+type Batch__426504721 =
+  {
+    chunk_ids : Vector__985631301<ChunkId__5594846>;
+    var commit_batch_arguments : ?CommitBatchArguments__486083865;
+    var evidence_computation : ?EvidenceComputation__164969735;
+    var expires_at : Time__121024797;
+    var total_bytes : Nat
+  };
+type Batch__554135951 =
+  {
+    chunk_ids : Vector__985631301<ChunkId__716101024>;
+    var commit_batch_arguments : ?CommitBatchArguments__733011803;
+    var evidence_computation : ?EvidenceComputation__645868677;
+    var expires_at : Time__816673238;
+    var total_bytes : Nat
+  };
+type Batch__866156300 =
+  {
+    chunk_ids : Vector__985631301<ChunkId__532986061>;
+    var commit_batch_arguments : ?CommitBatchArguments__511249194;
+    var evidence_computation : ?EvidenceComputation__237921055;
+    var expires_at : Time__57005197;
+    var total_bytes : Nat
+  };
+type Branch__799430246<K, V> =
+  (nats : [var Nat], parent : [var ?Branch__799430246<K, V>],
+   keys : [var ?K], children : [var ?Node__1029154752<K, V>],
+   max : [var ?(K, V)]);
+type CertifiedAssets__575852017 = StableStore__626647651;
+type CertifiedAssets__95571034 = StableStore__626647651;
+type ChunkId__30306550 = Nat;
+type ChunkId__462992395 = Nat;
+type ChunkId__532986061 = Nat;
+type ChunkId__5594846 = Nat;
+type ChunkId__716101024 = Nat;
+type Chunk__523081013 = {batch_id : BatchId__496896010; content : Blob};
+type ClearArguments__304512312 = {};
+type ClearArguments__334001278 = {};
+type ClearArguments__520174813 = {};
+type ClearArguments__614328059 = {};
+type ClearArguments__869447135 = {};
+type CommitBatchArguments__112623014 =
+  {
+    batch_id : BatchId__496896010;
+    operations : [BatchOperationKind__857722721]
+  };
+type CommitBatchArguments__486083865 =
+  {
+    batch_id : BatchId__342237955;
+    operations : [BatchOperationKind__628647605]
+  };
+type CommitBatchArguments__511249194 =
+  {
+    batch_id : BatchId__1032566513;
+    operations : [BatchOperationKind__112076315]
+  };
+type CommitBatchArguments__733011803 =
+  {
+    batch_id : BatchId__940816580;
+    operations : [BatchOperationKind__778937957]
+  };
+type CommitBatchArguments__86442558 =
+  {
+    batch_id : BatchId__324165117;
+    operations : [BatchOperationKind__294532669]
+  };
+type Configuration__432945277 =
+  {var max_batches : ?Nat64; var max_bytes : ?Nat64; var max_chunks : ?Nat64};
+type Configuration__673627488 =
+  {var max_batches : ?Nat64; var max_bytes : ?Nat64; var max_chunks : ?Nat64};
+type Configuration__676646484 =
+  {var max_batches : ?Nat64; var max_bytes : ?Nat64; var max_chunks : ?Nat64};
+type Configuration__82778914 =
+  {var max_batches : ?Nat64; var max_bytes : ?Nat64; var max_chunks : ?Nat64};
+type Configuration__995363981 =
+  {var max_batches : ?Nat64; var max_bytes : ?Nat64; var max_chunks : ?Nat64};
+type CreateAssetArguments__102330031 =
+  {
+    allow_raw_access : ?Bool;
+    content_type : Text;
+    enable_aliasing : ?Bool;
+    headers : ?[Header__199765800];
+    key : Key__181610376;
+    max_age : ?Nat64
+  };
+type CreateAssetArguments__18548572 =
+  {
+    allow_raw_access : ?Bool;
+    content_type : Text;
+    enable_aliasing : ?Bool;
+    headers : ?[Header__254520091];
+    key : Key__573349738;
+    max_age : ?Nat64
+  };
+type CreateAssetArguments__217227566 =
+  {
+    allow_raw_access : ?Bool;
+    content_type : Text;
+    enable_aliasing : ?Bool;
+    headers : ?[Header__205147345];
+    key : Key__300670119;
+    max_age : ?Nat64
+  };
+type CreateAssetArguments__250147861 =
+  {
+    allow_raw_access : ?Bool;
+    content_type : Text;
+    enable_aliasing : ?Bool;
+    headers : ?[Header__794109793];
+    key : Key__601496780;
+    max_age : ?Nat64
+  };
+type CreateAssetArguments__961270110 =
+  {
+    allow_raw_access : ?Bool;
+    content_type : Text;
+    enable_aliasing : ?Bool;
+    headers : ?[Header__301174697];
+    key : Key__922381155;
+    max_age : ?Nat64
+  };
+type CurrentMemoryRegion__753482981 = MemoryRegionV1__694136855;
+type DeleteAssetArguments__357907681 = {key : Key__181610376};
+type DeleteAssetArguments__515638231 = {key : Key__573349738};
+type DeleteAssetArguments__652689006 = {key : Key__922381155};
+type DeleteAssetArguments__942411246 = {key : Key__601496780};
+type DeleteAssetArguments__951873493 = {key : Key__300670119};
+type Directory__186913486 =
+  Map__363645299<Text, HierarchicalAssets__969921594>;
+type Directory__218587159 =
+  Map__869657960<Text, HierarchicalAssets__924105455>;
+type EndpointRecord__357776573 = EndpointRecord__433544940;
+type EndpointRecord__433544940 =
+  {
+    hash : Blob;
+    is_fallback_path : Bool;
+    method : Text;
+    no_certification : Bool;
+    no_request_certification : Bool;
+    query_params : [(Text, Text)];
+    request_headers : [Header__199765800];
+    response_headers : [Header__199765800];
+    status : Nat16;
+    url : Text
+  };
+type EndpointsMap__672919812 =
+  Map__855987655<Blob, Vector__744531854<Metadata__695093194>>;
+type EvidenceComputation__164969735 =
+  {
+    #Computed : Blob;
+    #NextChunkIndex : NextChunkIndex__223441126;
+    #NextOperation : NextOperation__195064021
+  };
+type EvidenceComputation__237921055 =
+  {
+    #Computed : Blob;
+    #NextChunkIndex : NextChunkIndex__1052957235;
+    #NextOperation : NextOperation__92577047
+  };
+type EvidenceComputation__645868677 =
+  {
+    #Computed : Blob;
+    #NextChunkIndex : NextChunkIndex__965759970;
+    #NextOperation : NextOperation__987519692
+  };
+type EvidenceComputation__7785530 =
+  {
+    #Computed : Blob;
+    #NextChunkIndex : NextChunkIndex__522060593;
+    #NextOperation : NextOperation__353406876
+  };
+type EvidenceComputation__813828325 =
+  {
+    #Computed : Blob;
+    #NextChunkIndex : NextChunkIndex__959543908;
+    #NextOperation : NextOperation__990621142
+  };
+type FileSystem__673666251 =
+  {
+    certs : CertifiedAssets__95571034;
+    region : MemoryRegion__384917964;
+    root : Directory__186913486
+  };
+type FileSystem__929155160 =
+  {
+    certs : CertifiedAssets__575852017;
+    region : MemoryRegion__364211947;
+    root : Directory__218587159
+  };
+type FreeMemoryV1__752231203 = MaxBpTree__786814339<Nat, Nat>;
+type Hash__694034501 = Blob;
+type Header__199765800 = (Text, Text);
+type Header__205147345 = (Text, Text);
+type Header__254520091 = (Text, Text);
+type Header__301174697 = (Text, Text);
+type Header__794109793 = (Text, Text);
+type HierarchicalAssets__924105455 =
+  {
+    #Asset : Asset__622570851;
+    #Directory : Map__869657960<Text, HierarchicalAssets__924105455>
+  };
+type HierarchicalAssets__969921594 =
+  {
+    #Asset : Asset__381786100;
+    #Directory : Map__363645299<Text, HierarchicalAssets__969921594>
+  };
+type IntervalLength__131577066 = Nat;
+type Interval__992790688 =
+  {len : IntervalLength__131577066; prefix : Prefix__992009493};
+type Key__181610376 = Text;
+type Key__286792776 = Blob;
+type Key__300670119 = Text;
+type Key__573349738 = Text;
+type Key__601496780 = Text;
+type Key__922381155 = Text;
+type LabeledTree__721443089 =
+  {#leaf : Leaf__657577521; #subtree : OT__928446023};
+type Leaf__654249717<K, V> =
+  (nats : [var Nat], parent : [var ?Branch__799430246<K, V>],
+   adjacent_nodes : [var ?Leaf__654249717<K, V>], kvs : [var ?(K, V)],
+   max : [var ?(K, V)]);
+type Leaf__657577521 = {leaf_hash : Hash__694034501; value : Value__43636435};
+type Map__274966286<K, V> = Map__714078229<K, V>;
+type Map__363645299<K, V> = Map__714078229<K, V>;
+type Map__714078229<K, V> = Map__741714040<K, V>;
+type Map__741714040<K, V> =
+  [var ?(keys : [var ?K], values : [var ?V], indexes : [var Nat],
+         bounds : [var Nat32])];
+type Map__855987655<K, V> = Map__714078229<K, V>;
+type Map__869657960<K, V> = Map__714078229<K, V>;
+type Map__897522106<K, V> = Map__714078229<K, V>;
+type Map__923563326<K, V> = Map__714078229<K, V>;
+type MaxBpTree__1013551051<K, V> =
+  {
+    var next_id : Nat;
+    order : Nat;
+    var root : Node__1029154752<K, V>;
+    var size : Nat
+  };
+type MaxBpTree__786814339<K, V> = MaxBpTree__1013551051<K, V>;
+type MemoryRegionV1__694136855 =
+  {
+    var deallocated : Nat;
+    var free_memory : FreeMemoryV1__752231203;
+    var pages : Nat;
+    region : Region;
+    var size : Nat
+  };
+type MemoryRegion__364211947 = MemoryRegion__756159267;
+type MemoryRegion__384917964 = MemoryRegion__756159267;
+type MemoryRegion__756159267 = CurrentMemoryRegion__753482981;
+type MetadataMap__158280049 =
+  Map__855987655<Text, SplitMetadataEndpoints__948589000>;
+type Metadata__695093194 =
+  {
+    encoded_expr_path : Blob;
+    endpoint : EndpointRecord__357776573;
+    full_expr_path : [Blob];
+    ic_certificate_expression : Text
+  };
+type NextChunkIndex__1052957235 =
+  {
+    chunk_index : Nat;
+    hasher_state : StaticSha256__619326047;
+    operation_index : Nat
+  };
+type NextChunkIndex__223441126 =
+  {
+    chunk_index : Nat;
+    hasher_state : StaticSha256__619326047;
+    operation_index : Nat
+  };
+type NextChunkIndex__522060593 =
+  {
+    chunk_index : Nat;
+    hasher_state : StaticSha256__619326047;
+    operation_index : Nat
+  };
+type NextChunkIndex__959543908 =
+  {
+    chunk_index : Nat;
+    hasher : StaticSha256__619326047;
+    operation_index : Nat
+  };
+type NextChunkIndex__965759970 =
+  {
+    chunk_index : Nat;
+    hasher_state : StaticSha256__619326047;
+    operation_index : Nat
+  };
+type NextOperation__195064021 =
+  {hasher_state : StaticSha256__619326047; operation_index : Nat};
+type NextOperation__353406876 =
+  {hasher_state : StaticSha256__619326047; operation_index : Nat};
+type NextOperation__92577047 =
+  {hasher_state : StaticSha256__619326047; operation_index : Nat};
+type NextOperation__987519692 =
+  {hasher_state : StaticSha256__619326047; operation_index : Nat};
+type NextOperation__990621142 =
+  {hasher : StaticSha256__619326047; operation_index : Nat};
+type Node__1029154752<K, V> =
+  {#branch : Branch__799430246<K, V>; #leaf : Leaf__654249717<K, V>};
+type OT__928446023 = ?T__1012267095;
+type Permissions__23104969 =
+  {
+    commit_principals : Set__1053605594<Principal>;
+    manage_permissions_principals : Set__1053605594<Principal>;
+    prepare_principals : Set__1053605594<Principal>
+  };
+type Permissions__623785957 =
+  {
+    commit_principals : Set__920476212<Principal>;
+    manage_permissions_principals : Set__920476212<Principal>;
+    prepare_principals : Set__920476212<Principal>
+  };
+type Prefix__865767108 = [Nat8];
+type Prefix__992009493 = [Nat8];
+type ProtectedRoute__212551794 =
+  {cmacs_ : [Text]; path : Text; scan_count_ : Nat};
+type SetAssetContentArguments__100630493 =
+  {
+    chunk_ids : [ChunkId__532986061];
+    content_encoding : Text;
+    key : Key__601496780;
+    sha256 : ?Blob
+  };
+type SetAssetContentArguments__18420833 =
+  {
+    chunk_ids : [ChunkId__5594846];
+    content_encoding : Text;
+    key : Key__573349738;
+    sha256 : ?Blob
+  };
+type SetAssetContentArguments__284791828 =
+  {
+    chunk_ids : [ChunkId__716101024];
+    content_encoding : Text;
+    key : Key__922381155;
+    sha256 : ?Blob
+  };
+type SetAssetContentArguments__384693424 =
+  {
+    chunk_ids : [ChunkId__462992395];
+    content_encoding : Text;
+    key : Key__181610376;
+    sha256 : ?Blob
+  };
+type SetAssetContentArguments__549348508 =
+  {
+    chunk_ids : [ChunkId__30306550];
+    content_encoding : Text;
+    key : Key__300670119;
+    sha256 : ?Blob
+  };
+type SetAssetPropertiesArguments__189951242 =
+  {
+    allow_raw_access : ??Bool;
+    headers : ??[Header__794109793];
+    is_aliased : ??Bool;
+    key : Key__601496780;
+    max_age : ??Nat64
+  };
+type SetAssetPropertiesArguments__456101702 =
+  {
+    allow_raw_access : ??Bool;
+    headers : ??[Header__254520091];
+    is_aliased : ??Bool;
+    key : Key__573349738;
+    max_age : ??Nat64
+  };
+type SetAssetPropertiesArguments__505016144 =
+  {
+    allow_raw_access : ??Bool;
+    headers : ??[Header__199765800];
+    is_aliased : ??Bool;
+    key : Key__181610376;
+    max_age : ??Nat64
+  };
+type SetAssetPropertiesArguments__778232849 =
+  {
+    allow_raw_access : ??Bool;
+    headers : ??[Header__205147345];
+    is_aliased : ??Bool;
+    key : Key__300670119;
+    max_age : ??Nat64
+  };
+type SetAssetPropertiesArguments__934046308 =
+  {
+    allow_raw_access : ??Bool;
+    headers : ??[Header__301174697];
+    is_aliased : ??Bool;
+    key : Key__922381155;
+    max_age : ??Nat64
+  };
+type Set__103272589<V> = Set__483445189<V>;
+type Set__1053605594<V> = Set__483445189<V>;
+type Set__417722533<K> =
+  [var ?(keys : [var ?K], indexes : [var Nat], bounds : [var Nat32])];
+type Set__483445189<K> = Set__417722533<K>;
+type Set__568571971<V> = Set__483445189<V>;
+type Set__920476212<V> = Set__483445189<V>;
+type Set__977326070<V> = Set__483445189<V>;
+type SizedPointer__394425933 = (Nat, Nat);
+type SizedPointer__820165143 = (Nat, Nat);
+type SplitMetadataEndpoints__948589000 =
+  {
+    endpoints : EndpointsMap__672919812;
+    fallback_endpoints : EndpointsMap__672919812
+  };
+type StableStore__1044328044 = StableStore__626647651;
+type StableStore__220713348 =
+  {
+    var canister_id : Principal;
+    fs : FileSystem__929155160;
+    permissions : Permissions__623785957;
+    shared_region : MemoryRegion__364211947;
+    var streaming_callback : ?StreamingCallback__954688607;
+    upload : Upload__327343117
+  };
+type StableStore__345901371 =
+  {
+    var canister_id : Principal;
+    fs : FileSystem__673666251;
+    permissions : Permissions__23104969;
+    shared_region : MemoryRegion__384917964;
+    var streaming_callback : ?StreamingCallback__507270644;
+    upload : Upload__721139505
+  };
+type StableStore__349682454 =
+  {
+    assets : Map__897522106<Key__181610376, Asset__93486522>;
+    batches : Map__897522106<BatchId__496896010, Batch__415947667>;
+    var canister_id : ?Principal;
+    certificate_store : StableStore__1044328044;
+    chunks : Map__897522106<ChunkId__462992395, Chunk__523081013>;
+    commit_principals : Set__568571971<Principal>;
+    configuration : Configuration__673627488;
+    manage_permissions_principals : Set__568571971<Principal>;
+    var next_batch_id : BatchId__496896010;
+    var next_chunk_id : ChunkId__462992395;
+    prepare_principals : Set__568571971<Principal>;
+    var streaming_callback : ?StreamingCallback__864714357
+  };
+type StableStore__626647651 =
+  {metadata_map : MetadataMap__158280049; var tree : Tree__561882892};
+type StableStore__646711253 =
+  {
+    assets : Map__923563326<Key__300670119, Asset__1069753355>;
+    batches : Map__923563326<BatchId__324165117, Batch__221674262>;
+    var canister_id : Principal;
+    certificate_store : StableStore__626647651;
+    chunks : Map__923563326<ChunkId__30306550, StoredChunk__1027702154>;
+    commit_principals : Set__103272589<Principal>;
+    configuration : Configuration__82778914;
+    copy_on_write_batches :
+      Map__923563326<BatchId__324165117, [(Text, ?Asset__1069753355)]>;
+    manage_permissions_principals : Set__103272589<Principal>;
+    var next_batch_id : BatchId__324165117;
+    var next_chunk_id : ChunkId__30306550;
+    prepare_principals : Set__103272589<Principal>;
+    var streaming_callback : ?StreamingCallback__891845203
+  };
+type StableStore__652339665 =
+  {
+    assets : Map__274966286<Key__573349738, Asset__436242041>;
+    batches : Map__274966286<BatchId__342237955, Batch__426504721>;
+    var canister_id : Principal;
+    certificate_store : StableStore__626647651;
+    chunks : Map__274966286<ChunkId__5594846, StoredChunk__906992225>;
+    commit_principals : Set__977326070<Principal>;
+    configuration : Configuration__995363981;
+    copy_on_write_batches :
+      Map__274966286<BatchId__342237955, [(Text, ?Asset__436242041)]>;
+    manage_permissions_principals : Set__977326070<Principal>;
+    var next_batch_id : BatchId__342237955;
+    var next_chunk_id : ChunkId__5594846;
+    prepare_principals : Set__977326070<Principal>;
+    var streaming_callback : ?StreamingCallback__64946222
+  };
+type StaticSha256__619326047 =
+  {
+    digest : [Nat8];
+    high : Bool;
+    i_block : Nat32;
+    i_msg : Nat8;
+    msg : [Nat16];
+    sh : [Nat16];
+    sl : [Nat16];
+    word : Nat16
+  };
+type StoredChunk__1027702154 =
+  {batch_id : BatchId__324165117; content : [Nat8]};
+type StoredChunk__1054752774 =
+  {batch_id : BatchId__940816580; pointer : SizedPointer__394425933};
+type StoredChunk__805033114 =
+  {batch_id : BatchId__1032566513; pointer : SizedPointer__820165143};
+type StoredChunk__906992225 = {batch_id : BatchId__342237955; content : Blob};
+type StreamingCallbackResponse__367912450 =
+  {body : Blob; token : ?StreamingToken__711541255};
+type StreamingCallbackResponse__816198981 =
+  {body : Blob; token : ?StreamingToken__640159840};
+type StreamingCallbackResponse__830269186 =
+  {body : Blob; token : ?StreamingToken__113429576};
+type StreamingCallbackResponse__841972976 =
+  {body : Blob; token : ?StreamingToken__174103406};
+type StreamingCallbackResponse__968550400 =
+  {body : Blob; token : ?StreamingToken__476029729};
+type StreamingCallback__507270644 =
+  shared query StreamingToken__711541255 ->
+    async StreamingCallbackResponse__367912450;
+type StreamingCallback__64946222 =
+  shared query StreamingToken__113429576 ->
+    async StreamingCallbackResponse__830269186;
+type StreamingCallback__864714357 =
+  shared query StreamingToken__640159840 ->
+    async ?StreamingCallbackResponse__816198981;
+type StreamingCallback__891845203 =
+  shared query StreamingToken__174103406 ->
+    async StreamingCallbackResponse__841972976;
+type StreamingCallback__954688607 =
+  shared query StreamingToken__476029729 ->
+    async StreamingCallbackResponse__968550400;
+type StreamingToken__113429576 =
+  {
+    content_encoding : Text;
+    index : Nat;
+    key : Key__573349738;
+    sha256 : ?Blob
+  };
+type StreamingToken__174103406 =
+  {
+    content_encoding : Text;
+    index : Nat;
+    key : Key__300670119;
+    sha256 : ?Blob
+  };
+type StreamingToken__476029729 = Blob;
+type StreamingToken__640159840 = Blob;
+type StreamingToken__711541255 =
+  {
+    content_encoding : Text;
+    index : Nat;
+    key : Key__922381155;
+    sha256 : ?Blob
+  };
+type T__1012267095 =
+  {
+    #fork :
+      {
+        hash : Hash__694034501;
+        interval : Interval__992790688;
+        left : T__1012267095;
+        right : T__1012267095
+      };
+    #prefix :
+      {
+        here : LabeledTree__721443089;
+        key : Key__286792776;
+        labeled_hash : Hash__694034501;
+        prefix : Prefix__865767108;
+        rest : OT__928446023;
+        tree_hash : Hash__694034501
+      }
+  };
+type Time__121024797 = Time__429954796;
+type Time__429954796 = Int;
+type Time__488570079 = Time__429954796;
+type Time__57005197 = Time__429954796;
+type Time__784339588 = Time__429954796;
+type Time__816673238 = Time__429954796;
+type Tree__561882892 = LabeledTree__721443089;
+type UnsetAssetContentArguments__1021887138 =
+  {content_encoding : Text; key : Key__300670119};
+type UnsetAssetContentArguments__108117921 =
+  {content_encoding : Text; key : Key__181610376};
+type UnsetAssetContentArguments__480337755 =
+  {content_encoding : Text; key : Key__922381155};
+type UnsetAssetContentArguments__489085154 =
+  {content_encoding : Text; key : Key__601496780};
+type UnsetAssetContentArguments__9270027 =
+  {content_encoding : Text; key : Key__573349738};
+type Upload__327343117 =
+  {
+    batches : Map__869657960<BatchId__1032566513, Batch__866156300>;
+    chunks : Map__869657960<ChunkId__532986061, StoredChunk__805033114>;
+    configuration : Configuration__432945277;
+    var next_batch_id : BatchId__1032566513;
+    var next_chunk_id : ChunkId__532986061;
+    region : MemoryRegion__364211947
+  };
+type Upload__721139505 =
+  {
+    batches : Map__363645299<BatchId__940816580, Batch__554135951>;
+    chunks : Map__363645299<ChunkId__716101024, StoredChunk__1054752774>;
+    configuration : Configuration__676646484;
+    var next_batch_id : BatchId__940816580;
+    var next_chunk_id : ChunkId__716101024;
+    region : MemoryRegion__384917964
+  };
+type Value__43636435 = Blob;
+type Vector__744531854<A> = Vector__985631301<A>;
+type Vector__786281675<A> = Vector__985631301<A>;
+type Vector__985631301<X> =
+  {var data_blocks : [var [var ?X]]; var i_block : Nat; var i_element : Nat};
+actor {
+  stable var assetStableData :
+    {
+      #v0 : StableStore__349682454;
+      #v0_1_0 : StableStore__646711253;
+      #v0_2_0 : StableStore__652339665;
+      #v0_3_0 : StableStore__345901371;
+      #v1_0_0 : StableStore__220713348
+    };
+  stable protectedRoutesState :
+    {var protected_routes : [(Text, ProtectedRoute__212551794)]}
+};

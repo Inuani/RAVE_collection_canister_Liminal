@@ -1,0 +1,148 @@
+type UnsetAssetContentArguments = 
+ record {
+   content_encoding: text;
+   key: Key;
+ };
+type Time = int;
+type StreamingToken = blob;
+type StreamingStrategy = variant {Callback: CallbackStreamingStrategy;};
+type StreamingCallbackResponse = 
+ record {
+   body: blob;
+   token: opt StreamingToken;
+ };
+type StreamingCallback = func (StreamingToken) ->
+                          (StreamingCallbackResponse) query;
+type SetAssetPropertiesArguments = 
+ record {
+   allow_raw_access: opt opt bool;
+   headers: opt opt vec Header;
+   is_aliased: opt opt bool;
+   key: Key;
+   max_age: opt opt nat64;
+ };
+type SetAssetContentArguments = 
+ record {
+   chunk_ids: vec ChunkId;
+   content_encoding: text;
+   key: Key;
+   sha256: opt blob;
+ };
+type RawUpdateHttpResponse = 
+ record {
+   body: blob;
+   headers: vec Header;
+   status_code: nat16;
+   streaming_strategy: opt StreamingStrategy;
+ };
+type RawUpdateHttpRequest = 
+ record {
+   body: blob;
+   headers: vec Header;
+   method: text;
+   url: text;
+ };
+type RawQueryHttpResponse = 
+ record {
+   body: blob;
+   headers: vec Header;
+   status_code: nat16;
+   streaming_strategy: opt StreamingStrategy;
+   upgrade: opt bool;
+ };
+type RawQueryHttpRequest = 
+ record {
+   body: blob;
+   certificate_version: opt nat16;
+   headers: vec Header;
+   method: text;
+   url: text;
+ };
+type ProtectedRoute = 
+ record {
+   cmacs: vec text;
+   path: text;
+   scan_count: nat;
+ };
+type Key = text;
+type Header = 
+ record {
+   text;
+   text;
+ };
+type DeleteAssetArguments = record {key: Key;};
+type CreateChunksResponse = record {chunk_ids: vec ChunkId;};
+type CreateChunksArguments = 
+ record {
+   batch_id: BatchId;
+   content: vec blob;
+ };
+type CreateChunkResponse = record {chunk_id: nat;};
+type CreateChunkArguments = 
+ record {
+   batch_id: BatchId;
+   content: blob;
+ };
+type CreateBatchResponse = record {batch_id: BatchId;};
+type CreateAssetArguments = 
+ record {
+   allow_raw_access: opt bool;
+   content_type: text;
+   enable_aliasing: opt bool;
+   headers: opt vec Header;
+   key: Key;
+   max_age: opt nat64;
+ };
+type CommitBatchArguments = 
+ record {
+   batch_id: BatchId;
+   operations: vec BatchOperationKind;
+ };
+type ClearArguments = record {};
+type ChunkId = nat;
+type CallbackStreamingStrategy = 
+ record {
+   callback: StreamingCallback;
+   token: StreamingToken;
+ };
+type BatchOperationKind = 
+ variant {
+   Clear: ClearArguments;
+   CreateAsset: CreateAssetArguments;
+   DeleteAsset: DeleteAssetArguments;
+   SetAssetContent: SetAssetContentArguments;
+   SetAssetProperties: SetAssetPropertiesArguments;
+   UnsetAssetContent: UnsetAssetContentArguments;
+ };
+type BatchId = nat;
+type AssetEncodingDetails = 
+ record {
+   content_encoding: text;
+   length: nat;
+   modified: Time;
+   sha256: opt blob;
+ };
+type AssetDetails = 
+ record {
+   content_type: text;
+   encodings: vec AssetEncodingDetails;
+   key: Key;
+ };
+service : {
+  add_protected_route: (path: text) -> ();
+  append_route_cmacs: (path: text, new_cmacs: vec text) -> ();
+  commit_batch: (args: CommitBatchArguments) -> ();
+  create_batch: (args: record {}) -> (CreateBatchResponse);
+  create_chunk: (args: CreateChunkArguments) -> (CreateChunkResponse);
+  create_chunks: (args: CreateChunksArguments) -> (CreateChunksResponse);
+  get_route_cmacs: (path: text) -> (vec text) query;
+  get_route_protection: (path: text) -> (opt ProtectedRoute) query;
+  http_request: (request: RawQueryHttpRequest) ->
+   (RawQueryHttpResponse) query;
+  http_request_streaming_callback: (token: StreamingToken) ->
+   (StreamingCallbackResponse) query;
+  http_request_update: (request: RawUpdateHttpRequest) ->
+   (RawUpdateHttpResponse);
+  list: (args: record {}) -> (vec AssetDetails) query;
+  update_route_cmacs: (path: text, new_cmacs: vec text) -> ();
+}
