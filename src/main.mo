@@ -7,10 +7,11 @@ import AssetsMiddleware "mo:liminal/Middleware/Assets";
 import HttpAssets "mo:http-assets";
 import AssetCanister "mo:liminal/AssetCanister";
 import Text "mo:new-base/Text";
-import ProtectedRoutes "protected_routes";
+import ProtectedRoutes "nfc_protec_routes";
+import Routes "routes";
 
-import Router "mo:liminal/Router";
-import RouteContext "mo:liminal/RouteContext";
+// import Router "mo:liminal/Router";
+// import RouteContext "mo:liminal/RouteContext";
 import RouterMiddleware "mo:liminal/Middleware/Router";
 import App "mo:liminal/App";
 import HttpContext "mo:liminal/HttpContext";
@@ -73,42 +74,12 @@ shared ({ caller = initializer }) actor class Actor() = self {
         };
     };
 
-    let routerConfig = {
-        prefix = null;
-        identityRequirement = null;
-        routes = [
-            Router.getQuery(
-                "/test",
-                func(ctx : RouteContext.RouteContext) : Liminal.HttpResponse {
-                    let testHtml = "<!DOCTYPE html>"
-                    # "<html><head><title>NFC Protected Test</title></head>"
-                    # "<body style='font-family: Arial; text-align: center; padding: 50px;'>"
-                    # "<h1 style='color: green;'>🔒 NFC PROTECTION WORKING! 🔒</h1>"
-                    # "<p>You successfully accessed the protected content!</p>"
-                    # "<div style='background: #e8f5e8; padding: 20px; margin: 20px; border-radius: 10px;'>"
-                    # "<h3>✅ Access Granted</h3>"
-                    # "<p>This page can only be viewed with valid NFC authentication.</p>"
-                    # "</div></body></html>";
 
-                    ctx.buildResponse(#ok, #html(testHtml));
-                },
-            ),
-            Router.getQuery(
-                "/{path}",
-                func(ctx : RouteContext.RouteContext) : Liminal.HttpResponse {
-                    // This will serve your assets normally, but NFC middleware runs first
-                    ctx.buildResponse(#notFound, #error(#message("Not found")));
-                },
-            ),
-        ];
-    };
-
-    // Http App
     let app = Liminal.App({
         middleware = [
             createNFCProtectionMiddleware(),
             AssetsMiddleware.new(assetMiddlewareConfig),
-            RouterMiddleware.new(routerConfig),
+            RouterMiddleware.new(Routes.routerConfig()),
         ];
         errorSerializer = Liminal.defaultJsonErrorSerializer;
         candidRepresentationNegotiator = Liminal.defaultCandidRepresentationNegotiator;

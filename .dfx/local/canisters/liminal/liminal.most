@@ -472,7 +472,7 @@ type Permissions__623785957 =
   };
 type Prefix__865767108 = [Nat8];
 type Prefix__992009493 = [Nat8];
-type ProtectedRoute__212551794 =
+type ProtectedRoute__512113383 =
   {cmacs_ : [Text]; path : Text; scan_count_ : Nat};
 type SetAssetContentArguments__100630493 =
   {
@@ -769,5 +769,5 @@ actor {
       #v1_0_0 : StableStore__220713348
     };
   stable protectedRoutesState :
-    {var protected_routes : [(Text, ProtectedRoute__212551794)]}
+    {var protected_routes : [(Text, ProtectedRoute__512113383)]}
 };
